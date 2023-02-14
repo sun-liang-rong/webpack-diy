@@ -1,17 +1,15 @@
 <template>
-    <div>
-        <div v-for="item in 10">
-            <img :src="'./assets/images/' + item + '.png'" alt="">
-        </div>
-        <img src="./assets/images/1.png" alt="">
+  <div>
+    <div class="box">
+      <img src="@/assets/images/1.png" alt="" />
     </div>
+  </div>
 </template>
 
 <script setup>
-     import {ref} from 'vue';
-
+import { ref } from "vue";
 </script>
 
 <style lang="less" scoped>
-
+@import './App.less';
 </style>
