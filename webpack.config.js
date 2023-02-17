@@ -6,6 +6,12 @@ module.exports = {
   entry: {
     path: "./src/main.js",
   },
+  resolve: {
+    extensions: [".js", ".jsx", ".vue"],
+    alias: {
+      "@": path.resolve(__dirname, 'src')
+    }
+  },
   module: {
     rules: [
       {
@@ -17,6 +23,10 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
+        test: /\.less$/,
+        use: ["style-loader", "css-loader", "less-loader"],
+      },
+      {
         test: /\.(png|jpe?g|gif)$/,
         type: "asset/resource",
         generator: {
@@ -26,7 +36,7 @@ module.exports = {
     ],
   },
   output: {
-    filename: "assets/js/[name].[contenthash:6].js",
+    filename: "assets/js/[name].[chunkhash:8].js",
     path: path.resolve(__dirname, "./dist"),
   },
   plugins: [
